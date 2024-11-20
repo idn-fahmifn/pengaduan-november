@@ -26,3 +26,6 @@ Route::get('halaman-user', function(){
 })->name('user');
 
 require __DIR__.'/auth.php';
+
+
+Route::view('tampilan', 'template.template');

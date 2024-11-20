@@ -43,10 +43,10 @@
     <iconify-icon icon="radix-icons:cross-2"></iconify-icon>
   </button>
   <div>
-    <a href="index.html" class="sidebar-logo">
-      <img src="assets/images/logo.png" alt="site logo" class="light-logo">
-      <img src="assets/images/logo-light.png" alt="site logo" class="dark-logo">
-      <img src="assets/images/logo-icon.png" alt="site logo" class="logo-icon">
+    <a href="#" class="sidebar-logo">
+      <img src="https://www.idn.id/storage/2022/11/LOGO-ID-Networkers-IDN.ID_.png" alt="site logo" class="light-logo">
+      <img src="https://www.idn.id/storage/2022/11/LOGO-ID-Networkers-IDN.ID_.png" alt="site logo" class="dark-logo">
+      <img src="https://www.idn.id/storage/2023/02/Logo-ID-Networkers-Merah-Bawah-750x1024.png" alt="site logo" class="logo-icon">
     </a>
   </div>
 

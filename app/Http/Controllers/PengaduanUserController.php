@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Pengaduan;
 
 class PengaduanUserController extends Controller
 {
@@ -10,4 +11,12 @@ class PengaduanUserController extends Controller
     {
         return view('user.pengaduan.create');
     }
+
+    public function store(Request $request)
+    {
+        $input = $request->all();
+        dd($input);
+
+    }
+
 }

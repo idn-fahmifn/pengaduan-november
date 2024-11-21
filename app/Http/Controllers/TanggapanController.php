@@ -28,14 +28,23 @@ class TanggapanController extends Controller
     
     public function store(Request $request)
     {
-        $input = $request->all();
-        $tanggal = Carbon::now()->format('d-m-y');
-        $input['tgl_tanggapan'] = $tanggal;
-        $input['update_tanggapan'] = $tanggal;
-        
-        // Tanggapan::create($input);
 
-        dd($input);
+        $tanggal = Carbon::now()->format('d-m-y');
+
+        Tanggapan::create([
+            'id_pengaduan' => $request->id_pengaduan,
+            'tanggal_tanggapan' => $tanggal,
+            'update_tanggapan' => $tanggal,
+            'tanggapan' => $request->tanggapan
+        ]);
+        
+        $pengaduan = Pengaduan::find($request->id_pengaduan);
+        $pengaduan->status = $request->status();
+        $pengaduan->save();
+
+        return redirect()->route('tanggapan.index');
+
+        // dd($input);
     }
 
     /**

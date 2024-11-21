@@ -18,11 +18,11 @@ Menanggapi pengaduan/laporan
             @csrf
             <div class="row gy-3">
                 <div class="col-12">
-                    <input type="text" name="id_tanggapan" class="form-control" value="{{$data->id}}">
+                    <input type="text" name="id_pengaduan" class="form-control" value="{{$data->id}}">
                 </div>
                 <div class="col-12">
                     <label class="form-label">Status</label>
-                    <select class="form-select" name="jenis" required>
+                    <select class="form-select" name="status" required>
                         <option value="{{$data->status}}">{{$data->status}}</option>
                         <option value="diproses">diproses</option>
                         <option value="selesai">selesai</option>

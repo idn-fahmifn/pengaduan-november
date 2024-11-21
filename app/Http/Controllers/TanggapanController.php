@@ -39,7 +39,7 @@ class TanggapanController extends Controller
         ]);
         
         $pengaduan = Pengaduan::find($request->id_pengaduan);
-        $pengaduan->status = $request->status();
+        $pengaduan->status = $request->status;
         $pengaduan->save();
 
         return redirect()->route('tanggapan.index');

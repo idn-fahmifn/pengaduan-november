@@ -32,10 +32,7 @@ class TanggapanController extends Controller
         $tanggal = Carbon::now()->format('d-m-y');
         $input['tgl_tanggapan'] = $tanggal;
         $input['update_tanggapan'] = $tanggal;
-
-        $admin = User::where('id_user', auth()->user()->id)->get()->all();
-
-        $input['id_user'] = $admin;
+        
         // Tanggapan::create($input);
 
         dd($input);

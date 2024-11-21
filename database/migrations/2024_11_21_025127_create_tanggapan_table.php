@@ -13,7 +13,6 @@ return new class extends Migration
     {
         Schema::create('tanggapan', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('id_user'); //foreign Key ke tabel users.
             $table->unsignedBigInteger('id_pengaduan'); //foreign Key ke table pengaduan.
             $table->date('tgl_tanggapan');
             $table->date('update_tanggapan');

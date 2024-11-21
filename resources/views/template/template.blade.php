@@ -170,6 +170,12 @@
   <!-- main js -->
   <script src="{{asset('assets/js/app.js')}}"></script>
 
+  <script>
+    let table = new DataTable('#dataTable');
+  </script>
+
+  
+
 </body>
 
 </html>

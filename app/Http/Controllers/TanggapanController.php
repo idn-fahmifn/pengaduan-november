@@ -44,7 +44,6 @@ class TanggapanController extends Controller
 
         return redirect()->route('tanggapan.index');
 
-        // dd($input);
     }
 
     /**

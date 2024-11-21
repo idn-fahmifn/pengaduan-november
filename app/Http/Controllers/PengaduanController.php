@@ -33,9 +33,10 @@ class PengaduanController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Pengaduan $pengaduan)
+    public function show($id)
     {
-        //
+        $data = Pengaduan::find($id);
+        return view('admin.pengaduan.detail', compact('data'));
     }
 
     /**

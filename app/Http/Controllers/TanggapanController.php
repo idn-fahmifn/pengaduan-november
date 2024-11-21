@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Tanggapan;
+use App\Models\Pengaduan;
+use App\Models\User;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class TanggapanController extends Controller
@@ -12,31 +15,39 @@ class TanggapanController extends Controller
      */
     public function index()
     {
-        //
+        $data = Pengaduan::all();
+        return view('admin.tanggapan.index', compact('data'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
+    
     public function create()
     {
         //
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
+    
     public function store(Request $request)
     {
-        //
+        $input = $request->all();
+        $tanggal = Carbon::now()->format('d-m-y');
+        $input['tgl_tanggapan'] = $tanggal;
+        $input['update_tanggapan'] = $tanggal;
+
+        $admin = User::where('id_user', auth()->user()->id)->get()->all();
+
+        $input['id_user'] = $admin;
+        // Tanggapan::create($input);
+
+        dd($input);
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Tanggapan $tanggapan)
+    public function show($id)
     {
-        //
+        $data = Pengaduan::find($id);
+        return view('admin.tanggapan.detail', compact('data'));
     }
 
     /**

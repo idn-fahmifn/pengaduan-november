@@ -3,6 +3,7 @@
 use App\Http\Controllers\PengaduanController;
 use App\Http\Controllers\PengaduanUserController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\TanggapanController;
 use App\Http\Middleware\AdminMiddleware;
 use Illuminate\Support\Facades\Route;
 
@@ -26,6 +27,7 @@ Route::middleware(['auth', AdminMiddleware::class])->group(function () {
 // group prefix route halaman admin
 Route::prefix('admin')->group(function(){
     Route::resource('pengaduan', PengaduanController::class);
+    Route::resource('tanggapan', TanggapanController::class);
 })->middleware(AdminMiddleware::class);
 
 

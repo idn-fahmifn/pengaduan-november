@@ -20,7 +20,7 @@ Pengaduan
             <div class="row gy-3">
                 <div class="col-12">
                     <label class="form-label">Judul Pengaduan</label>
-                    <input type="text" name="judul_pengaduan" class="form-control" required placeholder="Masukan judul pengaduan">
+                    <input type="text" name="judul_laporan" class="form-control" required placeholder="Masukan judul pengaduan">
                     <input type="text" name="id_user" value="{{Auth::user()->id}}" hidden>
                 </div>
                 <div class="col-12">

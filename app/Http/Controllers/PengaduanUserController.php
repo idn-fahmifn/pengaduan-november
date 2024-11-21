@@ -17,7 +17,7 @@ class PengaduanUserController extends Controller
     {
         $input = $request->all();
         $tanggal = Carbon::now()->format('d-m-y');
-        $input['tanggal'] = $tanggal;
+        $input['tanggal_laporan'] = $tanggal;
 
         // kondisi input file
         if($request->hasFile('dokumentasi'))

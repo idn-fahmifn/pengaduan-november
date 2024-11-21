@@ -29,7 +29,6 @@ Route::prefix('admin')->group(function(){
 
 
 
-
 // jika bukan admin maka akan diarahkan kerouting berikut : 
 Route::get('halaman-user', function(){
     return view('user.dashboard-user');

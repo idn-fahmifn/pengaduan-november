@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\PengaduanController;
+use App\Http\Controllers\PengaduanUserController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Middleware\AdminMiddleware;
 use Illuminate\Support\Facades\Route;
@@ -30,9 +31,17 @@ Route::prefix('admin')->group(function(){
 
 
 // jika bukan admin maka akan diarahkan kerouting berikut : 
-Route::get('halaman-user', function(){
-    return view('user.dashboard-user');
-})->name('user');
+Route::prefix('user')->group(function(){
+
+    Route::get('halaman-user', function(){
+        return view('user.dashboard-user');
+    })->name('user');
+
+    Route::get('ajukan-pengaduan', [PengaduanUserController::class, 'create'])->name('pengaduan.create');
+    
+});
+
+
 
 require __DIR__.'/auth.php';
 

@@ -15,16 +15,17 @@ Pengaduan
     </div>
     <div class="card-body">
 
-        <form action="#" method="post">
+        <form action="{{route('user-pengaduan.store')}}" method="post" enctype="multipart/form-data">
             @csrf
             <div class="row gy-3">
                 <div class="col-12">
                     <label class="form-label">Judul Pengaduan</label>
-                    <input type="text" name="judu_pengaduan" class="form-control" required placeholder="Masukan judul pengaduan">
+                    <input type="text" name="judul_pengaduan" class="form-control" required placeholder="Masukan judul pengaduan">
+                    <input type="text" name="id_user" value="{{Auth::user()->id}}" hidden>
                 </div>
                 <div class="col-12">
                     <label class="form-label">Jenis Pengaduan</label>
-                    <select class="form-select" required>
+                    <select class="form-select" name="jenis" required>
                         <option value="">-Pilih Jenis-</option>
                         <option value="Kerusakan">Kerusakan</option>
                         <option value="Kehilangan">Kehilangan</option>

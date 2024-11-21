@@ -36,8 +36,11 @@ Route::prefix('user')->group(function(){
     Route::get('halaman-user', function(){
         return view('user.dashboard-user');
     })->name('user');
-
+    
+    // route pengaduan
     Route::get('ajukan-pengaduan', [PengaduanUserController::class, 'create'])->name('pengaduan.create');
+    ROute::post('kirim-pengaduan', [PengaduanUserController::class, 'store'])->name('user-pengaduan.store');
+
     
 });
 

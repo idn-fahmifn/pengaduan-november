@@ -33,7 +33,7 @@ class TanggapanController extends Controller
 
         Tanggapan::create([
             'id_pengaduan' => $request->id_pengaduan,
-            'tanggal_tanggapan' => $tanggal,
+            'tgl_tanggapan' => $tanggal,
             'update_tanggapan' => $tanggal,
             'tanggapan' => $request->tanggapan
         ]);

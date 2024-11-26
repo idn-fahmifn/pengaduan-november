@@ -41,6 +41,9 @@ Menanggapi pengaduan/laporan
 </div>
 
 
+@if ($data->status == 'pending')
+
+<!-- jika pengaduannya belum diproses/dilihat oleh admin maka dikeluaran form berikut -->
 <div class="card basic-data-table">
     <div class="card-header">
         <h5 class="card-title mb-0">{{$data->judul_laporan}}</h5>
@@ -72,4 +75,50 @@ Menanggapi pengaduan/laporan
         </form>
     </div>
 </div>
+
+@elseif($data->status == 'diproses')
+<!-- jika  statusnya masiih diproses -->
+<div class="card basic-data-table">
+    <div class="card-header d-flex justify-content-between">
+        <h5 class="card-title mb-0">{{$data->judul_laporan}}</h5>
+        <div class="text-success">Sedang diproses</div>
+    </div>
+    <div class="card-body">
+        <form action="{{route('tanggapan.update', $data->id)}}" method="post">
+            @csrf
+            {{method_field('put')}}
+
+            <div class="row gy-3">
+                <div class="col-12">
+                    <input type="text" name="id_pengaduan" class="form-control" value="{{$data->id}} hidden">
+                </div>
+                <div class="col-12">
+                    <label class="form-label">Status</label>
+                    <select class="form-select" name="status" required>
+                        <option value="{{$data->status}}">{{$data->status}}</option>
+                        <option value="diproses">diproses</option>
+                        <option value="selesai">selesai</option>
+                        <option value="ditolak">ditolak</option>
+                    </select>
+                </div>
+                <div class="col-12">
+                    <label class="form-label">Tanggapan</label>
+                    <textarea name="tanggapan" required class="form-control"></textarea>
+                </div>
+                <div class="col-12">
+                    <button type="submit" class="btn btn-primary-600">Submit</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+@elseif($data->status == 'selesai')
+<span>laporan selesai</span>
+
+@else
+<span>Laporan ditolak</span>
+
+@endif
+
 @endsection

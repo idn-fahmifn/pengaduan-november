@@ -1,3 +1,4 @@
+@if (Auth::user()->isAdmin)
 <div class="sidebar-menu-area">
     <ul class="sidebar-menu" id="sidebar-menu">
         <li class="dropdown">
@@ -43,3 +44,24 @@
         </li>
     </ul>
 </div>
+@else
+<div class="sidebar-menu-area">
+    <ul class="sidebar-menu" id="sidebar-menu">
+        <li class="dropdown">
+        <li class="sidebar-menu-group-title">Menu</li>
+        <li>
+            <a href="https://test.com">
+                <iconify-icon icon="mage:email" class="menu-icon"></iconify-icon>
+                <span>Dashboard</span>
+            </a>
+        </li>
+        <li>
+            <a href="https://test.com">
+                <iconify-icon icon="bi:chat-dots" class="menu-icon"></iconify-icon>
+                <span>Pengaduan Saya</span>
+            </a>
+        </li>
+    </ul>
+</div>
+
+@endif

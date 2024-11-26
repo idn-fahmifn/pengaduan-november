@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Pengaduan;
+use App\Models\Tanggapan;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
@@ -16,6 +17,7 @@ class UserController extends Controller
     public function detail($id)
     {
         $data = Pengaduan::find($id);
-        return view('user.pengaduan.detail', compact('data'));
+        $tanggapan = Tanggapan::where('id_pengaduan', $id)->get()->all();
+        return view('user.pengaduan.detail', compact('data', 'tanggapan'));
     }
 }

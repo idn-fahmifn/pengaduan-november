@@ -84,13 +84,15 @@ Menanggapi pengaduan/laporan
         <div class="text-success">Sedang diproses</div>
     </div>
     <div class="card-body">
-        <form action="{{route('tanggapan.update', $data->id)}}" method="post">
+
+        @foreach ($tanggapan as $item)
+        <form action="{{route('tanggapan.update', $item->id)}}" method="post">
             @csrf
             {{method_field('put')}}
-
+            
             <div class="row gy-3">
                 <div class="col-12">
-                    <input type="text" name="id_pengaduan" class="form-control" value="{{$data->id}} hidden">
+                    <input type="text" name="id_pengaduan" class="form-control" value="{{$data->id}}" hidden>
                 </div>
                 <div class="col-12">
                     <label class="form-label">Status</label>
@@ -103,13 +105,17 @@ Menanggapi pengaduan/laporan
                 </div>
                 <div class="col-12">
                     <label class="form-label">Tanggapan</label>
-                    <textarea name="tanggapan" required class="form-control"></textarea>
+                    <textarea name="tanggapan" required class="form-control">{{$item->tanggapan}}</textarea>
                 </div>
                 <div class="col-12">
                     <button type="submit" class="btn btn-primary-600">Submit</button>
                 </div>
             </div>
         </form>
+
+        @endforeach
+
+
     </div>
 </div>
 

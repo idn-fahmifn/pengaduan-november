@@ -67,9 +67,21 @@ class TanggapanController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Tanggapan $tanggapan)
+    public function update(Request $request, $id)
     {
-        //
+        $data = Tanggapan::find($id);
+        $data->update([
+            'id_pengaduan' => $request->id_pengaduan,
+            'tanggapan' => $request->tanggapan
+        ]);
+
+        $pengaduan = Pengaduan::find($request->id_pengaduan);
+        $pengaduan->status = $request->status;
+        $pengaduan->save();
+
+
+        return redirect()->route('tanggapan.index');
+
     }
 
     /**

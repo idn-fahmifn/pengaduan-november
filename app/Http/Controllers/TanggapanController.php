@@ -52,7 +52,8 @@ class TanggapanController extends Controller
     public function show($id)
     {
         $data = Pengaduan::find($id);
-        return view('admin.tanggapan.detail', compact('data'));
+        $tanggapan = Tanggapan::where('id_pengaduan', $id)->get()->all();
+        return view('admin.tanggapan.detail', compact('data', 'tanggapan'));
     }
 
     /**

@@ -12,6 +12,7 @@ Pengaduan
 <div class="card basic-data-table">
     <div class="card-header">
         <h5 class="card-title mb-0">Laporan Pengaduan</h5>
+        
     </div>
     <div class="card-body">
         <div class="table-responsive">

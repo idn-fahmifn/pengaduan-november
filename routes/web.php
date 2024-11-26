@@ -4,6 +4,7 @@ use App\Http\Controllers\PengaduanController;
 use App\Http\Controllers\PengaduanUserController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\TanggapanController;
+use App\Http\Controllers\UserController;
 use App\Http\Middleware\AdminMiddleware;
 use Illuminate\Support\Facades\Route;
 
@@ -35,15 +36,17 @@ Route::prefix('admin')->group(function(){
 // jika bukan admin maka akan diarahkan kerouting berikut : 
 Route::prefix('user')->group(function(){
 
-    Route::get('halaman-user', function(){
-        return view('user.dashboard-user');
-    })->name('user');
+    // Route Halaman utama user
+    Route::get('halaman-user', [UserController::class, 'index'])->name('user');
     
     // route pengaduan
     Route::get('ajukan-pengaduan', [PengaduanUserController::class, 'create'])->name('pengaduan.create');
-    ROute::post('kirim-pengaduan', [PengaduanUserController::class, 'store'])->name('user-pengaduan.store');
+    Route::post('kirim-pengaduan', [PengaduanUserController::class, 'store'])->name('user-pengaduan.store');
 
-    
+    // Route detail pengaduan
+    Route::get('detail/pengaduan-saya/{param}', [UserController::class, 'detail'])->name('detail-pengaduan');
+
+
 });
 
 

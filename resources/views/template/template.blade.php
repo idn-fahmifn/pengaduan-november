@@ -5,7 +5,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Wowdash - Bootstrap 5 Admin Dashboard HTML Template</title>
+  <title>Sistem Pengaduan Onile</title>
   <link rel="icon" type="image/png" href="{{asset('assets/images/favicon.png')}}" sizes="16x16">
   <!-- remix icon font css  -->
   <link rel="stylesheet" href="{{asset('assets/css/remixicon.css')}}">
@@ -85,8 +85,7 @@
               <div class="dropdown-menu to-top dropdown-menu-sm">
                 <div class="py-12 px-16 radius-8 bg-primary-50 mb-16 d-flex align-items-center justify-content-between gap-2">
                   <div>
-                    <h6 class="text-lg text-primary-light fw-semibold mb-2">Shaidul Islam</h6>
-                    <span class="text-secondary-light fw-medium text-sm">Admin</span>
+                    <h6 class="text-lg text-primary-light fw-semibold mb-2">{{Auth::user()->name}}</h6>
                   </div>
                   <button type="button" class="hover-text-danger">
                     <iconify-icon icon="radix-icons:cross-1" class="icon text-xl"></iconify-icon>
@@ -98,8 +97,15 @@
                       <iconify-icon icon="solar:user-linear" class="icon text-xl"></iconify-icon> My Profile</a>
                   </li>
                   <li>
-                    <a class="dropdown-item text-black px-0 py-8 hover-bg-transparent hover-text-danger d-flex align-items-center gap-3" href="javascript:void(0)">
+                    <a class="dropdown-item text-black px-0 py-8 hover-bg-transparent hover-text-danger d-flex align-items-center gap-3" href="{{ route('logout') }}"
+                                       onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
                       <iconify-icon icon="lucide:power" class="icon text-xl"></iconify-icon> Log Out</a>
+
+                      <form action="{{route('logout')}}" id="logout-form" method="post">
+                        @csrf
+                      </form>
+                    
                   </li>
                 </ul>
               </div>

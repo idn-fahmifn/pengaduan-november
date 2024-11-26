@@ -40,15 +40,20 @@ Detail Pengaduan Saya
 
 <div class="card basic-data-table mt-3">
     <div class="card-body">
+
+    @if ($tanggapan)
+        ada tanggapan
+    @else
+        tanggapan belum ada
+    @endif
+
         @foreach ($tanggapan as $item)
         <div class="row">
             <div class="col-md-12">
                 <div class="card-body p-24 d-flex flex-column gap-4">
-                    <div class="alert alert-primary bg-primary-50 text-primary-600 border-primary-50 px-24 py-11 mb-0 fw-semibold text-lg radius-8 d-flex align-items-center justify-content-between" role="alert">
+                    <div class="alert alert-info bg-info-50 text-primary-600 border-primary-50 px-24 py-11 mb-0 fw-semibold text-lg radius-8 d-flex align-items-center justify-content-between" role="alert">
                         <div class="d-flex align-items-center gap-2">
-                            
                             {{$item->tanggapan}}
-                            
                         </div>
                     </div>
                 </div>
